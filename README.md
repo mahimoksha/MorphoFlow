@@ -45,8 +45,7 @@ Each dataset is a folder of binary label volumes in NIfTI format, one file per c
 
 Volumes must be axis-aligned (the affine may only contain positive spacing and a translation in
 LPS coordinates). The case lists in `morphoflow/casename_files/<dataset>/` (`train_cases.txt`,
-`test_cases.txt`) give the splits used in the paper for VerSe19, OAI-ZIB, liver, kidney, spleen and
-left atrium.
+`test_cases.txt`) give the splits used in the paper for VerSe19, OAI-ZIB, liver, kidney and spleen.
 
 ## Configuration
 
