@@ -1,0 +1,51 @@
+# Default training parameters. Any key can be overridden in the training config passed with -c.
+
+# Model folder name inside model_basedir.
+model_name: thin_ad
+train_casefile: train_cases.txt
+# Fraction of training cases also used for validation (observed with different slices).
+val_fraction: 0.15
+
+# Which slices are observed during training:
+#   parallel       -- every slice_step_size-th slice along slice_step_axis
+#   orthogonal     -- one random slice along each axis
+#   mid_orthogonal -- three orthogonal slices through the foreground center
+#   axial / coronal / sagittal -- three random slices along axis 2 / 1 / 0
+slice_mode: parallel
+slice_step_size: 8
+slice_step_axis: 0
+# Average slice_step_size neighbouring slices into each parallel slice (thick slices).
+use_thick_slices: False
+
+# Implicit auto-decoder
+latent_dim: 64
+# Number of layers in the occupancy MLP and the layers that receive the coordinates.
+op_num_layers: 8
+op_coord_layers: [0, 4]
+
+# Flow prior: number of autoregressive rational-quadratic spline layers.
+flow_num_layers: 4
+
+# Optimization
+batch_size_train: 6
+# Points sampled per training example per dimension (parallel mode). If -1, use the whole volume.
+num_points_per_example_per_dim_train: 64
+# Network and flow learning rate; scaled with the batch size.
+learning_rate: 1.0e-4
+# Latent learning rate; not scaled with the batch size.
+learning_rate_lat: 1.0e-3
+num_epochs: 5000
+# Epochs of stage 1 (auto-decoder only). The flow prior is fitted in the remaining epochs.
+burnin_epochs: 1000
+
+# ARD: weight of the Gamma(gamma_a, gamma_b) hyperprior on the precisions. If 0, disabled.
+lat_reg_lambda: 1.0e-4
+gamma_a: 2
+gamma_b: 0.001
+
+# Log to tensorboard every x epochs (train and val).
+log_epoch_count: 2
+# Store a checkpoint every x epochs, keeping the latest max_num_checkpoints.
+checkpoint_epoch_count: 50
+max_num_checkpoints: 5
+num_workers: 2

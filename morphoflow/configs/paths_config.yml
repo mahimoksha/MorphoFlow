@@ -1,0 +1,17 @@
+# Paths used by both train.py and evaluate.py. Relative paths are resolved from the folder you
+# run the scripts in.
+
+# Trained models are stored in <model_basedir>/<model_name>/.
+model_basedir: "outputs/liver/models"
+
+# Dataset root. NIfTI label volumes (<casename>.nii.gz) are read from
+# <data_basedir>/<train_labels_dirname>/ and <data_basedir>/<test_labels_dirname>/.
+data_basedir: "/path/to/datasets/liver"
+train_labels_dirname: "train"
+test_labels_dirname: "test"
+
+# Folder with train_cases.txt and test_cases.txt.
+casefiles_basedir: "casename_files/liver"
+
+# Reconstructions and metrics are written to <output_basedir>/<model_name>_<eval settings>/.
+output_basedir: "outputs/liver/results"

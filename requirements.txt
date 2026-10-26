@@ -1,0 +1,8 @@
+torch>=2.0
+nflows==0.14
+numpy
+scipy
+nibabel
+PyYAML
+matplotlib
+tensorboard

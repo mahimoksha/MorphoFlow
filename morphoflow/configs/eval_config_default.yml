@@ -1,0 +1,19 @@
+# Default inference parameters. Any key can be overridden in the evaluation config passed with -c.
+
+test_casefile: test_cases.txt
+
+# Write predicted volumes and fitted latents next to the metrics.
+export_predictions: True
+# Allow writing into an existing results folder.
+allow_overwriting: False
+
+# Which slices of the test cases are observed (same options as slice_mode in training).
+inference_slice_mode: parallel
+slice_step_size: 8
+slice_step_axis: 0
+
+# Number of iterations for test-time latent optimization.
+latent_num_iters: 1200
+# If train dice doesn't change this number of 10-step blocks, stop latent optimization.
+# -1 means never stop early.
+max_num_const_train_dsc: -1

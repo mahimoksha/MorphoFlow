@@ -1,0 +1,17 @@
+word_0002
+word_0003
+word_0005
+word_0009
+word_0010
+word_0013
+word_0015
+word_0027
+word_0035
+word_0036
+word_0042
+word_0044
+word_0055
+word_0067
+word_0083
+word_0101
+word_0125

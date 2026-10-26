@@ -1,0 +1,7 @@
+# Reconstruct the test cases from thin parallel slices (every 8th slice along axis 0).
+inference_slice_mode: parallel
+slice_step_size: 8
+slice_step_axis: 0
+
+latent_num_iters: 2000
+max_num_const_train_dsc: -1
